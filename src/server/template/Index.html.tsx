@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react';
-import { Component } from '../../client/Component';
+import App from '../../client/App';
 import Javascript from './components/Javascript.html';
 
 const Index: FunctionComponent = () => {
@@ -17,7 +17,7 @@ const Index: FunctionComponent = () => {
             </head>
             <body>
                 <div id="root">
-                    <Component message='Sup!'/> 
+                    <App/> 
                 </div>
 
                 

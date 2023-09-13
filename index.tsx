@@ -1,11 +1,31 @@
 import express from 'express';
 import { renderToString } from 'react-dom/server';
-import Index from './template/Index.html';
+import Index from './src/server/template/Index.html';
 
 const defaultPort = 3030;
 const port = process.env.PORT || defaultPort;
-const clientPath = 'dist/client';
-const app = express();
+const clientPath = 'dist';
+
+const result = await Bun.build({
+    entrypoints: ['./src/client/index.tsx'],
+    outdir: './dist',
+    target: 'browser',
+    sourcemap: 'none',
+    minify: {
+        whitespace: true,
+        identifiers: true,
+        syntax: true,
+    },
+});
+
+if (!result.success) {
+    console.error('Build failed');
+    for (const message of result.logs) {
+      console.error(message);
+    }
+} else {
+    console.info('Client Build successful');
+    const app = express();
 
 app.use(express.static(clientPath));
 app.use((req, res) => {
@@ -32,4 +52,4 @@ const closeGracefully = async () => {
 };
 process.on('SIGTERM', closeGracefully);
 process.on('SIGINT', closeGracefully);
-
+}

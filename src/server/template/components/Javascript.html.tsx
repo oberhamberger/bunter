@@ -3,16 +3,17 @@ import { readdirSync } from 'fs';
 import { resolve, extname } from 'path';
 
 let scriptFiles: string[] = [];
-try {
-    scriptFiles = readdirSync(resolve(import.meta.dir + './../client')).filter(
-        (fileName) => extname(fileName) === '.js',
-    );
-} catch (err) {
-    console.warn(`HTML-Template: error loading js files for SSR: ${err}`);
-}
 
-const Javascript: FunctionComponent= (
-) =>  (
+const Javascript: FunctionComponent = (
+) => {
+    try {
+        scriptFiles = readdirSync(resolve(import.meta.dir + '../../../../../dist')).filter(
+            (fileName) => extname(fileName) === '.js',
+        );
+    } catch (err) {
+        console.warn(`HTML-Template: error loading js files for SSR: ${err}`);
+    }
+    return (
         <>
             {scriptFiles.map((file) => (
                 <script
@@ -25,7 +26,7 @@ const Javascript: FunctionComponent= (
             ))}
         </>
     );
-
+}
 Javascript.displayName = 'SSRJavascript';
 
 export default Javascript;

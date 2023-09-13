@@ -1,6 +1,6 @@
 {
   "name": "bunter",
-  "module": "index.ts",
+  "module": "index.tsx",
   "type": "module",
   "devDependencies": {
     "@types/express": "^4.17.17",

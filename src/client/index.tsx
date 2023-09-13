@@ -2,9 +2,9 @@
 /// <reference lib="dom.iterable" />
 
 import { hydrateRoot } from 'react-dom/client';
-import { Component } from './Component';
+import App from './App';
 
 const rootNode = document.getElementById('root');
 if (rootNode) {
-    hydrateRoot(rootNode, <Component message="Sup!" />);
+    hydrateRoot(rootNode, <App/>);
 }
