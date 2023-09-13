@@ -26,6 +26,8 @@ if (!result.success) {
     app.use(express.static('dist'));
     app.use((req, res) => {
         const markup = renderToString(<Index />);
+        console.info(`Rendered App for ${req.url}`);
+
         res.setHeader('Content-Type', 'text/html; charset=utf-8');
         res.status(200);
         res.send(markup);
