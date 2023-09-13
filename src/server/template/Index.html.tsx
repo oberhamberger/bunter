@@ -12,7 +12,6 @@ const Index: FunctionComponent = () => {
                     content="width=device-width, initial-scale=1.0"
                 />
                 <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
-                <link rel="canonical" href="https://cohbrgr.com/" />
 
                 <title>Bunter</title>
             </head>
