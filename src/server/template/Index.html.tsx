@@ -12,14 +12,12 @@ const Index: FunctionComponent = () => {
                     content="width=device-width, initial-scale=1.0"
                 />
                 <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
-
                 <title>Bunter</title>
             </head>
             <body>
                 <div id="root">
                     <App />
                 </div>
-
                 <Javascript />
             </body>
         </html>
