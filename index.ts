@@ -1,15 +1,21 @@
 const serverResult = await Bun.build({
-    entrypoints: ['./src/server/index.ts'],
+    entrypoints: ['./src/server/index.tsx'],
     outdir: './dist/server',
     target: 'bun',
-    sourcemap: 'external'
+    sourcemap: 'external',
+    external: ['react']
 });
 
 const clientResult = await Bun.build({
     entrypoints: ['./src/client/index.tsx'],
     outdir: './dist/client',
     target: 'browser',
-    sourcemap: 'none'
+    sourcemap: 'none',
+    minify: {
+        whitespace: true,
+        identifiers: true,
+        syntax: true,
+    },
 });
 
 if (!serverResult.success) {
