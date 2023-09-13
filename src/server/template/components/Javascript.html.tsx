@@ -4,12 +4,11 @@ import { resolve, extname } from 'path';
 
 let scriptFiles: string[] = [];
 
-const Javascript: FunctionComponent = (
-) => {
+const Javascript: FunctionComponent = () => {
     try {
-        scriptFiles = readdirSync(resolve(import.meta.dir + '../../../../../dist')).filter(
-            (fileName) => extname(fileName) === '.js',
-        );
+        scriptFiles = readdirSync(
+            resolve(import.meta.dir + '../../../../../dist'),
+        ).filter((fileName) => extname(fileName) === '.js');
     } catch (err) {
         console.warn(`HTML-Template: error loading js files for SSR: ${err}`);
     }
@@ -26,7 +25,7 @@ const Javascript: FunctionComponent = (
             ))}
         </>
     );
-}
+};
 Javascript.displayName = 'SSRJavascript';
 
 export default Javascript;

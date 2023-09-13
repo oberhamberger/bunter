@@ -17,12 +17,10 @@ const Index: FunctionComponent = () => {
             </head>
             <body>
                 <div id="root">
-                    <App/> 
+                    <App />
                 </div>
 
-                
-                <Javascript/>
-                
+                <Javascript />
             </body>
         </html>
     );
