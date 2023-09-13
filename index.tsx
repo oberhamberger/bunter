@@ -31,9 +31,7 @@ if (!result.success) {
         res.send(markup);
     });
 
-    const server = app.listen(3030, () => {
-        console.info(`Server started at http://localhost:3030`);
-    });
+    const server = app.listen(3030, () => console.info(`Server started at http://localhost:3030`));
     const closeGracefully = async () => {
         await server.close();
         console.info(`Server closed.`);
