@@ -2,10 +2,6 @@ import express from 'express';
 import { renderToString } from 'react-dom/server';
 import Index from './src/server/template/Index.html';
 
-const defaultPort = 3030;
-const port = process.env.PORT || defaultPort;
-const clientPath = 'dist';
-
 const result = await Bun.build({
     entrypoints: ['./src/client/index.tsx'],
     outdir: './dist',
@@ -25,9 +21,9 @@ if (!result.success) {
     }
 } else {
     console.info('Client Build successful');
+    
     const app = express();
-
-    app.use(express.static(clientPath));
+    app.use(express.static('dist'));
     app.use((req, res) => {
         const markup = renderToString(<Index />);
         res.setHeader('Content-Type', 'text/html; charset=utf-8');
@@ -35,8 +31,8 @@ if (!result.success) {
         res.send(markup);
     });
 
-    const server = app.listen(port, () => {
-        console.info(`Server started at http://localhost:${port}`);
+    const server = app.listen(3030, () => {
+        console.info(`Server started at http://localhost:3030`);
     });
     const closeGracefully = async () => {
         await server.close();
