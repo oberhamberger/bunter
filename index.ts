@@ -4,12 +4,6 @@ const result = await Bun.build({
     entrypoints: ['./src/client/index.tsx'],
     outdir: './dist',
     target: 'browser',
-    sourcemap: 'none',
-    minify: {
-        whitespace: true,
-        identifiers: true,
-        syntax: true,
-    },
 });
 
 if (!result.success) {
