@@ -6,12 +6,7 @@ const result = await Bun.build({
     target: 'browser',
 });
 
-if (!result.success) {
-    console.error('Build failed');
-    for (const message of result.logs) {
-        console.error(message);
-    }
-} else {
+if (result.success) {
     console.info('Client Build successful');
     Server();
 }
