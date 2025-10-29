@@ -1,7 +1,20 @@
 {
   "name": "bunter",
+  "version": "1.0.0",
   "module": "index.ts",
+  "author": "Christian Oberhamberger",
+  "description": "temporary playground for old bun gone mad",
+  "private": true,
+  "license": "ISC",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oberhamberger/bunter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oberhamberger/bunter/issues"
+  },
+  "homepage": "https://github.com/oberhamberger/bunter#readme",
   "devDependencies": {
     "@types/express": "^4.17.18",
     "@types/react": "^18.2.24",
